@@ -1,4 +1,4 @@
-defmodule SamplePhoenixAppWithoutDbWeb.Telemetry do
+defmodule SamplePhoenixAppWithoutDBWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -42,7 +42,7 @@ defmodule SamplePhoenixAppWithoutDbWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {SamplePhoenixAppWithoutDbWeb, :count_users, []}
+      # {SamplePhoenixAppWithoutDBWeb, :count_users, []}
     ]
   end
 end

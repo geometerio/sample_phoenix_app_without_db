@@ -1,3 +1,3 @@
-defmodule SamplePhoenixAppWithoutDbWeb.LayoutView do
-  use SamplePhoenixAppWithoutDbWeb, :view
+defmodule SamplePhoenixAppWithoutDBWeb.LayoutView do
+  use SamplePhoenixAppWithoutDBWeb, :view
 end

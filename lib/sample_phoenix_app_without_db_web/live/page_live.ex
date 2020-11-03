@@ -1,5 +1,5 @@
-defmodule SamplePhoenixAppWithoutDbWeb.PageLive do
-  use SamplePhoenixAppWithoutDbWeb, :live_view
+defmodule SamplePhoenixAppWithoutDBWeb.PageLive do
+  use SamplePhoenixAppWithoutDBWeb, :live_view
 
   @impl true
   def mount(_params, _session, socket) do
@@ -26,7 +26,7 @@ defmodule SamplePhoenixAppWithoutDbWeb.PageLive do
   end
 
   defp search(query) do
-    if not SamplePhoenixAppWithoutDbWeb.Endpoint.config(:code_reloader) do
+    if not SamplePhoenixAppWithoutDBWeb.Endpoint.config(:code_reloader) do
       raise "action disabled when not in development"
     end
 

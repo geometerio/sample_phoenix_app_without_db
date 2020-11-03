@@ -1,5 +1,5 @@
-defmodule SamplePhoenixAppWithoutDbWeb.PageLiveTest do
-  use SamplePhoenixAppWithoutDbWeb.ConnCase
+defmodule SamplePhoenixAppWithoutDBWeb.PageLiveTest do
+  use SamplePhoenixAppWithoutDBWeb.ConnCase
 
   import Phoenix.LiveViewTest
 

@@ -1,11 +1,11 @@
-defmodule SamplePhoenixAppWithoutDbWeb.Router do
-  use SamplePhoenixAppWithoutDbWeb, :router
+defmodule SamplePhoenixAppWithoutDBWeb.Router do
+  use SamplePhoenixAppWithoutDBWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {SamplePhoenixAppWithoutDbWeb.LayoutView, :root}
+    plug :put_root_layout, {SamplePhoenixAppWithoutDBWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -14,14 +14,14 @@ defmodule SamplePhoenixAppWithoutDbWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", SamplePhoenixAppWithoutDbWeb do
+  scope "/", SamplePhoenixAppWithoutDBWeb do
     pipe_through :browser
 
     live "/", PageLive, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", SamplePhoenixAppWithoutDbWeb do
+  # scope "/api", SamplePhoenixAppWithoutDBWeb do
   #   pipe_through :api
   # end
 
@@ -37,7 +37,7 @@ defmodule SamplePhoenixAppWithoutDbWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: SamplePhoenixAppWithoutDbWeb.Telemetry
+      live_dashboard "/dashboard", metrics: SamplePhoenixAppWithoutDBWeb.Telemetry
     end
   end
 end

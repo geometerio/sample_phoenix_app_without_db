@@ -1,4 +1,4 @@
-defmodule SamplePhoenixAppWithoutDbWeb.Endpoint do
+defmodule SamplePhoenixAppWithoutDBWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :sample_phoenix_app_without_db
 
   # The session will be stored in the cookie and signed,
@@ -10,7 +10,7 @@ defmodule SamplePhoenixAppWithoutDbWeb.Endpoint do
     signing_salt: "wXuCEvxL"
   ]
 
-  socket "/socket", SamplePhoenixAppWithoutDbWeb.UserSocket,
+  socket "/socket", SamplePhoenixAppWithoutDBWeb.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -49,5 +49,5 @@ defmodule SamplePhoenixAppWithoutDbWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug SamplePhoenixAppWithoutDbWeb.Router
+  plug SamplePhoenixAppWithoutDBWeb.Router
 end

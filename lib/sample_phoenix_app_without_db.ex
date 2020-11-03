@@ -1,6 +1,6 @@
-defmodule SamplePhoenixAppWithoutDb do
+defmodule SamplePhoenixAppWithoutDB do
   @moduledoc """
-  SamplePhoenixAppWithoutDb keeps the contexts that define your domain
+  SamplePhoenixAppWithoutDB keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

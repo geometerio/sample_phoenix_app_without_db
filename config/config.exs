@@ -8,11 +8,11 @@
 use Mix.Config
 
 # Configures the endpoint
-config :sample_phoenix_app_without_db, SamplePhoenixAppWithoutDbWeb.Endpoint,
+config :sample_phoenix_app_without_db, SamplePhoenixAppWithoutDBWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "TRyEYbltaJlex5GMbxQ9akxooyXGS8SpA+KQaKD/hx8H42VFPmZ9mUum5mC6QJYk",
-  render_errors: [view: SamplePhoenixAppWithoutDbWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: SamplePhoenixAppWithoutDb.PubSub,
+  render_errors: [view: SamplePhoenixAppWithoutDBWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: SamplePhoenixAppWithoutDB.PubSub,
   live_view: [signing_salt: "O4fvXDNo"]
 
 # Configures Elixir's Logger

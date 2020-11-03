@@ -11,7 +11,7 @@ secret_key_base =
     You can generate one by calling: mix phx.gen.secret
     """
 
-config :sample_phoenix_app_without_db, SamplePhoenixAppWithoutDbWeb.Endpoint,
+config :sample_phoenix_app_without_db, SamplePhoenixAppWithoutDBWeb.Endpoint,
   http: [
     port: String.to_integer(System.get_env("PORT") || "4000"),
     transport_options: [socket_opts: [:inet6]]
@@ -23,7 +23,7 @@ config :sample_phoenix_app_without_db, SamplePhoenixAppWithoutDbWeb.Endpoint,
 # If you are doing OTP releases, you need to instruct Phoenix
 # to start each relevant endpoint:
 #
-#     config :sample_phoenix_app_without_db, SamplePhoenixAppWithoutDbWeb.Endpoint, server: true
+#     config :sample_phoenix_app_without_db, SamplePhoenixAppWithoutDBWeb.Endpoint, server: true
 #
 # Then you can assemble a release by calling `mix release`.
 # See `mix help release` for more information.

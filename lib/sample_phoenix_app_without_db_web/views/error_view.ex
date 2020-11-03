@@ -1,5 +1,5 @@
-defmodule SamplePhoenixAppWithoutDbWeb.ErrorView do
-  use SamplePhoenixAppWithoutDbWeb, :view
+defmodule SamplePhoenixAppWithoutDBWeb.ErrorView do
+  use SamplePhoenixAppWithoutDBWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

@@ -1,12 +1,12 @@
-defmodule SamplePhoenixAppWithoutDbWeb do
+defmodule SamplePhoenixAppWithoutDBWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use SamplePhoenixAppWithoutDbWeb, :controller
-      use SamplePhoenixAppWithoutDbWeb, :view
+      use SamplePhoenixAppWithoutDBWeb, :controller
+      use SamplePhoenixAppWithoutDBWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,11 +19,11 @@ defmodule SamplePhoenixAppWithoutDbWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: SamplePhoenixAppWithoutDbWeb
+      use Phoenix.Controller, namespace: SamplePhoenixAppWithoutDBWeb
 
       import Plug.Conn
-      import SamplePhoenixAppWithoutDbWeb.Gettext
-      alias SamplePhoenixAppWithoutDbWeb.Router.Helpers, as: Routes
+      import SamplePhoenixAppWithoutDBWeb.Gettext
+      alias SamplePhoenixAppWithoutDBWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -31,7 +31,7 @@ defmodule SamplePhoenixAppWithoutDbWeb do
     quote do
       use Phoenix.View,
         root: "lib/sample_phoenix_app_without_db_web/templates",
-        namespace: SamplePhoenixAppWithoutDbWeb
+        namespace: SamplePhoenixAppWithoutDBWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -45,7 +45,7 @@ defmodule SamplePhoenixAppWithoutDbWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {SamplePhoenixAppWithoutDbWeb.LayoutView, "live.html"}
+        layout: {SamplePhoenixAppWithoutDBWeb.LayoutView, "live.html"}
 
       unquote(view_helpers())
     end
@@ -72,7 +72,7 @@ defmodule SamplePhoenixAppWithoutDbWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import SamplePhoenixAppWithoutDbWeb.Gettext
+      import SamplePhoenixAppWithoutDBWeb.Gettext
     end
   end
 
@@ -87,9 +87,9 @@ defmodule SamplePhoenixAppWithoutDbWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import SamplePhoenixAppWithoutDbWeb.ErrorHelpers
-      import SamplePhoenixAppWithoutDbWeb.Gettext
-      alias SamplePhoenixAppWithoutDbWeb.Router.Helpers, as: Routes
+      import SamplePhoenixAppWithoutDBWeb.ErrorHelpers
+      import SamplePhoenixAppWithoutDBWeb.Gettext
+      alias SamplePhoenixAppWithoutDBWeb.Router.Helpers, as: Routes
     end
   end
 

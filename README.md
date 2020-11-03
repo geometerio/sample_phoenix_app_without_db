@@ -1,4 +1,4 @@
-# SamplePhoenixAppWithoutDb
+# SamplePhoenixAppWithoutDB
 
 To start your Phoenix server:
 
