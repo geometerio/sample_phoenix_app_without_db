@@ -1,0 +1,4 @@
+export CANONICAL_HOST="localhost"
+export LIVE_VIEW_SIGNING_SALT="$(mix phx.gen.secret)"
+export PORT=4000
+export SECRET_KEY_BASE="$(mix phx.gen.secret)"
