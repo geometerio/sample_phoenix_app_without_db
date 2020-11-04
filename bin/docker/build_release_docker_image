@@ -1,4 +1,10 @@
 #!/bin/bash
 
-docker build --tag sample_phoenix_app_with_no_db:latest .
+# FROM hexpm/elixir:1.11.2-erlang-23.1.1-alpine-3.12.0
+
+docker build \
+  --build-arg ELIXIR_VERSION=1.11.2 \
+  --build-arg ERLANG_VERSION=23.1.1 \
+  --build-arg ALPINE_VERSION=3.12.0 \
+  --tag sample_phoenix_app_with_no_db:latest .
 

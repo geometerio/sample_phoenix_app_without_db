@@ -1,5 +1,9 @@
-# Originally from: https://hexdocs.pm/phoenix/releases.html#containers
-FROM elixir:1.11.1-alpine AS builder
+# Adapted from: https://hexdocs.pm/phoenix/releases.html#containers
+ARG ELIXIR_VERSION
+ARG ERLANG_VERSION
+ARG ALPINE_VERSION
+
+FROM hexpm/elixir:${ELIXIR_VERSION}-erlang-${ERLANG_VERSION}-alpine-${ALPINE_VERSION} AS builder
 ENV MIX_ENV=prod
 WORKDIR /app
 
@@ -19,7 +23,7 @@ RUN mix do deps.get, deps.compile && \
   mix phx.digest && \
   mix do compile, release
 
-FROM alpine:3.9 AS runner
+FROM alpine:${ALPINE_VERSION} AS runner
 # EXPOSE 4000 5432
 WORKDIR /app
 
