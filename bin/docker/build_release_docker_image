@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker build --tag sample_phoenix_app_with_no_db:latest .
+

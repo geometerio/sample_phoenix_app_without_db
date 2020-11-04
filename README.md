@@ -1,19 +1,10 @@
-# SamplePhoenixAppWithoutDB
 
-To start your Phoenix server:
+Add a CNAME entry to DNSimple.com; e.g, sample-phoenix-app-without-db.geometer.dev point to: sample-phoenix-app-without-db-x37gb.ondigitalocean.app
 
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `npm install` inside the `assets` directory
-  * Start Phoenix endpoint with `mix phx.server`
+Hit https://sample-phoenix-app-without-db.geometer.dev/
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Go to Apps -> <app name> -> Settings then down to Domains & Certificates
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+Eventually you'll see an entry show up for https://sample-phoenix-app-without-db.geometer.dev/
 
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+CANONICAL_HOST should be set to sample-phoenix-app-without-db-x37gb.ondigitalocean.app

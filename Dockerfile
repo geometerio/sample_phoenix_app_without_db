@@ -1,3 +1,4 @@
+# Originally from: https://hexdocs.pm/phoenix/releases.html#containers
 FROM elixir:1.11.1-alpine AS build
 
 # install build dependencies
