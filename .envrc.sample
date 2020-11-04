@@ -1,4 +1,7 @@
+export ALPINE_VERSION=3.12.0
 export CANONICAL_HOST="localhost"
+export ELIXIR_VERSION=1.11.2
+export ERLANG_VERSION=23.1.1
 export LIVE_VIEW_SIGNING_SALT="$(mix phx.gen.secret)"
 export PORT=4000
 export SECRET_KEY_BASE="$(mix phx.gen.secret)"

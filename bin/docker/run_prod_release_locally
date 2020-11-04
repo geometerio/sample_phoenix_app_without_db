@@ -3,5 +3,7 @@
 docker run -it --rm -p 4000:4000 \
   --env LIVE_VIEW_SIGNING_SALT="${LIVE_VIEW_SIGNING_SALT}" \
   --env SECRET_KEY_BASE="${SECRET_KEY_BASE}"  \
-  --env CANONICAL_HOST=${CANONICAL_HOST}  --name test_release sample_phoenix_app_with_no_db:latest
+  --env CANONICAL_HOST=${CANONICAL_HOST}  \
+  --name test_release \
+  sample_phoenix_app_without_db:latest
 
