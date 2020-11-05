@@ -13,9 +13,10 @@ RUN apk add --no-cache build-base npm git python3 && \
 
 COPY mix.exs mix.lock ./
 COPY config config
+COPY lib lib
+# see excluded files in .dockerignore:
 COPY priv priv
 COPY assets assets
-COPY lib lib
 
 RUN mix do deps.get, deps.compile && \
   npm --prefix ./assets ci --progress=false --no-audit --loglevel=error && \
@@ -24,13 +25,15 @@ RUN mix do deps.get, deps.compile && \
   mix do compile, release
 
 FROM alpine:${ALPINE_VERSION} AS runner
-# EXPOSE 4000 5432
+ARG APP_NAME
+EXPOSE 4000
 WORKDIR /app
 
 RUN apk add --no-cache openssl ncurses-libs && \
   chown nobody:nobody /app
 
 USER nobody:nobody
-COPY --from=builder --chown=nobody:nobody /app/_build/prod/rel/sample_phoenix_app_without_db ./
+COPY --from=builder --chown=nobody:nobody /app/_build/prod/rel/$APP_NAME ./
 ENV HOME=/app
-CMD ["bin/sample_phoenix_app_without_db", "start"]
+RUN ln -s /app/bin/$APP_NAME /app/bin/release
+CMD ["bin/release", "start"]

@@ -1,4 +1,5 @@
 export ALPINE_VERSION=3.12.0
+export APP_NAME=sample_phoenix_app_without_db
 export CANONICAL_HOST="localhost"
 export ELIXIR_VERSION=1.11.2
 export ERLANG_VERSION=23.1.1

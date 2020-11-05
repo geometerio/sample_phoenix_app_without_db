@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker exec -it test_release ps aux
+docker exec -it ${APP_NAME} ps aux
