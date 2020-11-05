@@ -6,3 +6,6 @@ export ERLANG_VERSION=23.1.1
 export LIVE_VIEW_SIGNING_SALT="$(mix phx.gen.secret)"
 export PORT=4000
 export SECRET_KEY_BASE="$(mix phx.gen.secret)"
+
+# Not needed on Digital Ocean:
+export DOCKER_IMAGE_NAME="sample_phoenix_app_without_db:latest"

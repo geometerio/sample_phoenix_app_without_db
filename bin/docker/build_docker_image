@@ -5,4 +5,4 @@ docker build \
   --build-arg ERLANG_VERSION=${ERLANG_VERSION} \
   --build-arg ALPINE_VERSION=${ALPINE_VERSION} \
   --build-arg APP_NAME=${APP_NAME} \
-  --tag ${APP_NAME}:latest .
+  --tag ${DOCKER_IMAGE_NAME} .
