@@ -18,6 +18,13 @@ COPY rel rel
 COPY priv priv
 COPY assets assets
 
+ARG HEX_PRIVATE_ORG=""
+ARG HEX_PRIVATE_ORG_READ_ONLY_KEY=""
+RUN set -eux; \
+  if [ ! -z "${HEX_PRIVATE_ORG}" ] && [ ! -z "${HEX_PRIVATE_ORG_READ_ONLY_KEY}" ]; then \
+    mix hex.organization auth ${HEX_PRIVATE_ORG} --key ${HEX_PRIVATE_ORG_READ_ONLY_KEY}; \
+  fi
+
 RUN mix do deps.get, deps.compile && \
   npm --prefix ./assets ci --progress=false --no-audit --loglevel=error && \
   npm run --prefix ./assets deploy && \
