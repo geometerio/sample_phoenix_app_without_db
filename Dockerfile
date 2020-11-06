@@ -1,9 +1,8 @@
 # Adapted from: https://hexdocs.pm/phoenix/releases.html#containers
-ARG ELIXIR_VERSION
-ARG ERLANG_VERSION
-ARG ALPINE_VERSION
+ARG APP_BUILDER_ELIXIR_DOCKER_IMAGE
+ARG APP_RUNNER_DOCKER_IMAGE
 
-FROM hexpm/elixir:${ELIXIR_VERSION}-erlang-${ERLANG_VERSION}-alpine-${ALPINE_VERSION} AS builder
+FROM $APP_BUILDER_ELIXIR_DOCKER_IMAGE AS app_builder
 ENV MIX_ENV=prod
 WORKDIR /app
 
@@ -14,7 +13,8 @@ RUN apk add --no-cache build-base npm git python3 && \
 COPY mix.exs mix.lock ./
 COPY config config
 COPY lib lib
-# see excluded files in .dockerignore:
+COPY rel rel
+# See excluded files in .dockerignore for priv and assets:
 COPY priv priv
 COPY assets assets
 
@@ -24,7 +24,8 @@ RUN mix do deps.get, deps.compile && \
   mix phx.digest && \
   mix do compile, release
 
-FROM alpine:${ALPINE_VERSION} AS runner
+ARG APP_RUNNER_DOCKER_IMAGE
+FROM $APP_RUNNER_DOCKER_IMAGE AS app_runner
 ARG APP_NAME
 EXPOSE 4000
 WORKDIR /app
@@ -33,7 +34,12 @@ RUN apk add --no-cache openssl ncurses-libs && \
   chown nobody:nobody /app
 
 USER nobody:nobody
-COPY --from=builder --chown=nobody:nobody /app/_build/prod/rel/$APP_NAME ./
+COPY --from=app_builder --chown=nobody:nobody /app/_build/prod/rel/$APP_NAME ./
 ENV HOME=/app
-RUN ln -s /app/bin/$APP_NAME /app/bin/release
-CMD ["bin/release", "start"]
+
+RUN set -eux; \
+  if [ ! -e /app/bin/start_script ]; then \
+    ln -s /app/bin/$APP_NAME /app/bin/start_script; \
+  fi
+
+CMD ["bin/start_script", "start"]
