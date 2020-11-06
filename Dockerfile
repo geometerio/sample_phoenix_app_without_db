@@ -25,7 +25,7 @@ RUN set -eux; \
     mix hex.organization auth ${HEX_PRIVATE_ORG} --key ${HEX_PRIVATE_ORG_READ_ONLY_KEY}; \
   fi
 
-RUN mix do deps.get, deps.compile && \
+RUN mix do deps.get --only prod, deps.compile && \
   npm --prefix ./assets ci --progress=false --no-audit --loglevel=error && \
   npm run --prefix ./assets deploy && \
   mix phx.digest && \
