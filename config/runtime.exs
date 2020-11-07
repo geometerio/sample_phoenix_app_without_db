@@ -1,7 +1,7 @@
 import Config
 
 # CHANGE ME!
-# Modify the app name, repo name, and endpoint below to match your app.
+# Modify the app name and endpoint below to match your app.
 
 if config_env() == :prod do
   listen_port = String.to_integer(System.get_env("PORT") || "4000")
